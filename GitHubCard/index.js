@@ -24,7 +24,32 @@
           user, and adding that card to the DOM.
 */
 
+axios.get('https://api.github.com/users/Mosae').then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log('Data not returned', error);
+  });
+
 const followersArray = [];
+
+function githubUser(obj) {
+  const cardDiv = document.createElement('div');
+  const userImg = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const firstName = document.createElement('h3');
+  const userName = document.createElement('p');
+  const locationP = document.createElement('p');
+  const profileP = document.createElement('p');
+  const linkAddr = document.createElement('a');
+  const followersP = document.createElement('p');
+  const folowingP = document.createElement('p');
+  const bioP = document.createElement('p');
+
+
+
+
+}
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
