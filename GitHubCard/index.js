@@ -25,7 +25,8 @@
 */
 
 axios.get('https://api.github.com/users/Mosae').then(response => {
-    console.log(response);
+    console.log(response)
+
   })
   .catch(error => {
     console.log('Data not returned', error);
@@ -33,7 +34,11 @@ axios.get('https://api.github.com/users/Mosae').then(response => {
 
 const followersArray = [];
 
+
+const parent = document.querySelector('.container');
+
 function githubUser(obj) {
+  //create elements
   const cardDiv = document.createElement('div');
   const userImg = document.createElement('img');
   const cardInfo = document.createElement('div');
@@ -43,11 +48,45 @@ function githubUser(obj) {
   const profileP = document.createElement('p');
   const linkAddr = document.createElement('a');
   const followersP = document.createElement('p');
-  const folowingP = document.createElement('p');
+  const followingP = document.createElement('p');
   const bioP = document.createElement('p');
 
+  //add classes
+
+  cardDiv.classList.add('card');
+  cardInfo.classList.add('card-info');
+  firstName.classList.add('name');
+  userName.classList.add('username');
+
+  //add context
+  userName.src = data.url
+  firstName.textContent = data.name;
+  userName.textContent = data.login;
+  locationP.textContent = data.location;
+  linkAddr.setAttribute('href', data.html_url);
+  followersP.textContent = data.followers;
+  followingP.textContent = data.following;
+  bioP.textContent = datat.bio;
+  //append
+  cardDiv.append(userName);
+  cardDiv.append(userImg);
+  cardDiv.append(cardInfo);
+  cardInfo.append(firstName);
+  cardDiv.append(userName);
+  cardDiv.append(locationP);
+  cardDiv.append(profileP);
+  profileP.append(linkAddr);
+  cardDiv.append(followersP);
+  cardDiv.append(followingP);
+  cardDiv.append(bioP);
 
 
+
+
+  //grab parent element
+  console.log(userName)
+
+  return cardDiv
 
 }
 
